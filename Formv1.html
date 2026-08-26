@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- <form action="/dang-ky" method="post"> -->
+    <!-- <label for="hoTen">Họ tên:</label> -->
+    <!-- 1.text 2.email 3.password 4.Number 5.Date 6.Radio 7.CheckBox -->
+    <!-- <input
+        type="text"
+        name="hoTen"
+        id="hoTen"
+        placeholder="Nhập họ tên"
+        required
+        value="Việt nam"
+        disabled
+      />
+      <br />
+      <input type="email" /> <br />
+      <input type="password" /> <br />
+      <input type="number" /> <br />
+      <input type="date" /> <br />
+
+      <input type="radio" name="gerder" value="nam" />
+      <label>Nam</label>
+      <input type="radio" name="gerder" value="nu" />
+      <label>Nữ</label>
+
+      <br />
+      <input type="checkbox" id="html" name="html" value="html" />
+      <label for="html">Html</label>
+      <input type="checkbox" id="css" name="css" value="css" />
+      <label for="css">Css</label>
+      <input type="checkbox" id="js" name="js" value="js" />
+      <label for="js">Js</label> -->
+
+    <!-- <label>Giới thiệu bản thân</label>
+      <textarea
+        id="moTa"
+        name="moTa"
+        placeholder="Nhập mô tả"
+        rows="5"
+        cols="20"
+      ></textarea> -->
+
+    <!-- rows => quy đinh về số dòng hiển thị ban đầu cols => -->
+
+    <!-- <label>Khóa học:</label>
+      <select id="khoaHoc" name="khoaHoc">
+        <option value="html">Html</option>
+        <option value="css">Css</option>
+        <option value="js">js</option>
+      </select> -->
+    <!-- <button type="submit">Gửi</button> -->
+
+    <!-- <button type="submit">Gửi</button> -->
+    <!-- 
+      - submit Button => Submit Form => Browser thu thập dữ liệu => Gửi dữ liệu
+      theo action + method -->
+
+    <!-- <button type="reset">Reset</button> -->
+    <!-- reset
+      - Đưa các dữ liệu trong form về trạng thái ban đầu -->
+    <!-- </form> -->
+
+    <h2>Đăng ký thông tin sinh viên</h2>
+    <form action="/register" method="post">
+      <label for="fullName">Họ và tên</label>
+      <input
+        id="fullName"
+        name="fullName"
+        type="text"
+        placeholder="Nhập họ tên"
+        required
+      />
+
+      <br />
+
+      <label for="email">Email</label>
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Nhập email"
+        required
+      />
+
+      <br />
+
+      <label for="password">Mật khẩu</label>
+      <input
+        id="password"
+        name="password"
+        type="password"
+        placeholder="Nhập password"
+        required
+      />
+
+      <br />
+
+      <label for="birthday">Ngày sinh</label>
+      <input
+        id="birthday"
+        name="birthday"
+        type="date"
+        placeholder="Chọn ngày sinh"
+        required
+      />
+
+      <br />
+
+      <label for="gender">Giới tính</label>
+      <input id="male" name="gender" type="radio" />
+      <label for="nale">Nam</label>
+      <input id="female" name="gender" type="radio" />
+      <label for="female">Nữ</label>
+
+      <br />
+
+      <label for="skill">Kỹ năng</label>
+      <input id="html" name="skills" type="checkbox" />
+      <label for="html">Html</label>
+      <input id="css" name="skills" type="checkbox" />
+      <label for="css">CSS</label>
+      <input id="js" name="skills" type="checkbox" />
+      <label for="js">JS</label>
+
+      <br />
+
+      <button type="submit">Đăng ký</button>
+      <button type="reset">Làm mới</button>
+    </form>
+  </body>
+</html>

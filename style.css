@@ -1,0 +1,46 @@
+/* h1{
+    color: red;
+} */
+/* p{
+    color: blue;
+} */
+
+
+/* .important {
+    color: blue;
+} */
+
+/* class */
+/* .button { 
+    padding: 10px;
+} */
+
+/* .primary {
+    background-color: blue;
+} */
+
+/* ID */
+/* #header {
+    background-color: blue;
+} */
+
+/* h1 {
+    color: rgb(130, 62, 62);
+    background-color: #611a1a;
+    
+    em
+    rem
+    vh
+    vw
+    %
+} */
+
+.box {
+    width: 90vw;
+    height: 100vh;
+    background-color: red;
+
+
+
+
+}

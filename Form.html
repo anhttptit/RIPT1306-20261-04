@@ -1,0 +1,30 @@
+Luồng hoạt động của Form -Người dùng => Nhập/Chọn dữ liệu (form) => NGười dùng
+ấn gửi => trình duyệt thu thập dữ liệu => gửi dữ liệu đến server => Server xử lý
+dữ liệu => database
+
+<form action="/login" method="">
+  <label>Họ tên</label>
+  <input type="text" />
+
+  <button type="submit">Gửi</button>
+</form>
+
+- action - method (GET, POST)
+
+<form action="/search" method="get">
+  <input type="text" name="key" />
+  <button type="submit">Gửi</button>
+</form>
+
+URL /search?key='html' GET thường phù hợp 1- Tìm kiếm 2- Lọc dữ liệu 3- Phân
+trang 4- Các thao tác lấy dữ liệu POST
+<form action="/dangky" method="post">
+  <input type="text" name="ten" />
+  <input type="text" name="mk" />
+  <button type="submit">Gửi</button>
+</form>
+
+{ ten: 'html' mk:'pass' } POST thường được dùng cho 1- Đăng ký 2- Đăng nhập 3-
+Tạo dữ liệu 4- Gửi thông tin 5- Upload file GET - dữ liệu thường xuất hiện trên
+url (https:ptit.edu.vn/timkiem='') - thường được dùng lấy/tìm kiếm/lọc dữ liệu
+POST - dữ liệu nằm tròn resquest body - thường dùng gửi/tạo dữ liệu 1. Lable <
