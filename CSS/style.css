@@ -1,0 +1,202 @@
+.block-demo {
+    background: #333;
+    width: 150px; /* có tác dụng */
+    height: 40px; /* có tác dụng */
+}
+
+/* -> 2 block xếp chồng dọc, mỗi cái chiếm 1 dòng riêng, đúng kích thước 150*40 */
+
+.inline-demo {
+    background: #cde;
+    width: 150px; /* không có tác dụng */
+    height: 40px; /* không có tác dụng */
+}
+
+/* -> 2 inline nằm chung 1 dòng, dộng/cao chỉ theo đúng độ dài chữ */
+
+
+.tag {
+    display: inline-block;
+    width: 80px;
+    height: 30px;
+    background: #333;
+    color: #fff;
+    text-align: center;
+    margin-right: 4px;
+}
+
+/* -> 3 tag nằm chung dòng (giống inline) nhưng có kích thước cố định 80*30 (giống block) */
+
+
+/* .item {
+    width: 80px;
+    height: 80px;
+    background: #ddd;
+} */
+
+/* Biến thể A: mặc định flex-direction : row (trục chính ngang)*/
+/* .row {
+    background: red;
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center; 
+} */
+
+/* Biến thể B: mặc định flex-direction : column (trục chính dọc)*/
+/* .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+} */
+
+/* Biến thể C: dùng "gap" thay vì dùng justify-content tạo khoảng cách*/
+/* .row {
+    display: flex;
+    gap: 32px;
+} */
+
+
+.hide-none {
+    display: none;
+
+    /* biến mất khỏi trang, các phần tử khác xích lại lập đầy chỗ */
+}
+
+.hide-hidden {
+    visibility: hidden;
+    /* vô hình nhưng vẫn chiếm chỗ, để lại 1 khổng trống nhìn thấy được */
+}
+
+.content-box {
+    width: 200px;
+    border: 1px solid #333;
+    padding: 20px;
+    margin: 20px;
+}
+
+.p1 {
+    margin-bottom: 30px;
+    background: #333;
+    padding: 8px;
+}
+
+.p2 {
+    margin-top: 20px;
+    background: #ddd;
+    padding: 8px;
+}
+
+.wrapper {
+    width: 10%;
+    background: #333;
+    padding: 20px;
+}
+
+.centered {
+    width: 300px;
+    margin: 0 auto;
+    /* trên - dưới = 0, trái phải auto */
+    background: #ddd;
+    color: #fff;
+    padding: 12px;
+    text-align: center;
+}
+
+.normal-font {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.missing-font {
+    font-family: 'Font không tồn tại', cursive; 
+}
+.all-missing {
+    font-family: 'Font A không có', 'Font B không có';
+}
+
+.card-small, .card-large {
+    padding: 1rem;
+    border-radius: 0.5em;
+    border: 0.1em  dashed #333;
+}
+
+.card-small {
+    font-size: 14px;    
+}
+
+.card-large {
+    font-size: 28px;
+}
+
+
+.box {
+    border: 2px solid #333;
+    border-radius: 8px;    
+}
+
+
+.no-style {
+    border-color: red;
+    border-width: 5px;
+}
+.no-width {
+    border-style: solid;
+    border-color: blue;
+}
+.full {
+     border-color: red;
+    border-width: 3px;
+    border-style: dashed;
+}
+
+.solid {
+    border: 3px solid #333;
+}
+.dashed {
+    border: 3px dashed #333;
+}
+.dotted {
+    border: 3px dotted #333;
+}
+.double {
+    border: 3px double #333;
+}
+
+.btn {
+    padding: 10px;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    transition: all 0.15s;
+}
+
+.btn:hover {
+    background: #1967d2;
+}
+.btn:focus{
+    outline: 3px solid #f9c890;
+}
+.btn:active {
+    transform: scale(0,95);
+    background: #0d47a1;
+}
+
+.list li:first-child {
+    color: green;
+    font-weight: 700;
+}
+
+.list li:last-child {
+    color: red;
+    font-weight: 700;
+}
+
+.list li:nth-child(3n) {
+    border-left: 4px solid orange;
+}
+
+.list li:not(:first-child):not(:last-child) {
+    font-size: 30px;
+}
