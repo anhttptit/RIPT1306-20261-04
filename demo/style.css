@@ -1,0 +1,46 @@
+.product-list {
+  display: flex;
+  gap: 16px;
+}
+
+.product-card {
+  position: relative;
+  width: 250px;
+  box-sizing: border-box;
+  padding: 16px;
+  border: 2px solid #ddd;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  transition: border-color 0.2s;
+}
+
+.product-card:hover {
+  border-color: #2196f3;
+}
+
+.product-card::before {
+  content: "MỚI";
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  background: #e91e63;
+  color: white;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 999px;
+}
+
+.product-name {
+  font-weight: 700;
+  margin: 0 0 8px 0;
+}
+
+.product-price {
+  color: #2196f3;
+  margin: 0;
+}
+
+.product-card:nth-child(odd) {
+  background-color: #f9f9f9;
+}
