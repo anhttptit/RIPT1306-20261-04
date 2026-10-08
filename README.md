@@ -1,0 +1,36 @@
+# Pokemon – React + Vite + TypeScript
+
+## Chạy dự án
+
+```bash
+npm install
+npm run dev
+```
+
+## Cấu trúc
+
+```
+src/
+├── api/pokemonApi.ts        # fetch + async/await + generic <T> + cache Map
+├── types/pokemon.ts         # interface / type cho dữ liệu API
+├── utils/helpers.ts         # arrow function, template literal, regex
+├── hooks/
+│   ├── usePokemonList.ts    # useState, useEffect, useRef (AbortController)
+│   ├── usePokemonDetail.ts  # gọi API chi tiết khi id thay đổi
+│   └── useDebounce.ts       # custom hook generic
+├── components/
+│   ├── SearchBar.tsx        # forwardRef nhận ref từ cha
+│   ├── PokemonList.tsx      # render list với key
+│   ├── PokemonCard.tsx      # React.memo
+│   ├── Pagination.tsx
+│   ├── StatBar.tsx          # optional props
+│   └── PokemonModal.tsx     # useRef (focus), useEffect (Esc), useMemo
+├── App.tsx                  # useState, useMemo (lọc), useCallback
+├── main.tsx
+└── index.css                # CSS variables, grid, flex, animation
+```
+
+## API
+
+- Danh sách: `GET https://pokeapi.co/api/v2/pokemon?limit=24&offset=0`
+- Chi tiết: `GET https://pokeapi.co/api/v2/pokemon/{id}`
