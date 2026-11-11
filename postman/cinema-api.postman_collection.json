@@ -1,0 +1,457 @@
+{
+  "info": {
+    "name": "Cinema API – Demo 90 phút",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Import vào Postman: File → Import → kéo file này vào. Chạy server bằng npm run dev trước khi Send."
+  },
+  "item": [
+    {
+      "name": "1 · Mảng trong bộ nhớ (Bước 6–7)",
+      "item": [
+        {
+          "name": "Kiểm tra server",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/health",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "health"
+              ]
+            },
+            "description": "Mong đợi 200"
+          }
+        },
+        {
+          "name": "Danh sách phim",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ]
+            },
+            "description": "Mong đợi 200, mảng 2 phim"
+          }
+        },
+        {
+          "name": "Lọc theo thể loại",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies?genre=Hài",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ],
+              "query": [
+                {
+                  "key": "genre",
+                  "value": "Hài"
+                }
+              ]
+            },
+            "description": "Mong đợi 1 phim"
+          }
+        },
+        {
+          "name": "Một phim",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies/1",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "1"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Phim không tồn tại",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies/999",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "999"
+              ]
+            },
+            "description": "Mong đợi 404"
+          }
+        },
+        {
+          "name": "Tạo phim",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/movies",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ]
+            },
+            "description": "Mong đợi 201, id: 3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"Phi hành gia cuối cùng\",\n  \"genre\": \"Viễn tưởng\",\n  \"duration\": 141\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Thiếu dữ liệu",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/movies",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ]
+            },
+            "description": "Mong đợi 400",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Sửa phim 3",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/movies/3",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "3"
+              ]
+            },
+            "description": "Mong đợi 200, id vẫn là 3",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"duration\": 150,\n  \"id\": 99\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Xóa phim 3",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies/3",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "3"
+              ]
+            },
+            "description": "Lần 1: 204, lần 2: 404"
+          }
+        }
+      ]
+    },
+    {
+      "name": "2 · MongoDB (Bước 10–11)",
+      "item": [
+        {
+          "name": "Tạo phim (lưu movieId)",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/movies",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ]
+            },
+            "description": "Mong đợi 201. Tab Scripts tự lưu _id vào biến movieId.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"  Phi hành gia cuối cùng  \",\n  \"genres\": [\n    \"Viễn tưởng\"\n  ],\n  \"duration\": 141,\n  \"ageRating\": \"T13\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          },
+          "event": [
+            {
+              "listen": "test",
+              "script": {
+                "type": "text/javascript",
+                "exec": [
+                  "// Lưu _id của phim vừa tạo vào biến movieId để các request sau dùng",
+                  "if (pm.response.code === 201) {",
+                  "  pm.collectionVariables.set(\"movieId\", pm.response.json()._id);",
+                  "}"
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "name": "Danh sách phim",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Một phim",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies/{{movieId}}",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "{{movieId}}"
+              ]
+            }
+          }
+        },
+        {
+          "name": "Sửa phim",
+          "request": {
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/movies/{{movieId}}",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "{{movieId}}"
+              ]
+            },
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"isShowing\": false\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Dữ liệu sai Schema",
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "url": {
+              "raw": "{{base}}/movies",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ]
+            },
+            "description": "Bước 10: 500. Sau Bước 11: 400.",
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"title\": \"\",\n  \"duration\": 10,\n  \"ageRating\": \"X\"\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            }
+          }
+        },
+        {
+          "name": "Id sai định dạng",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies/abc",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "abc"
+              ]
+            },
+            "description": "Bước 10: 500. Sau Bước 11: 400."
+          }
+        },
+        {
+          "name": "Tìm kiếm + phân trang",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies?q=đèn&page=1&limit=2",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies"
+              ],
+              "query": [
+                {
+                  "key": "q",
+                  "value": "đèn"
+                },
+                {
+                  "key": "page",
+                  "value": "1"
+                },
+                {
+                  "key": "limit",
+                  "value": "2"
+                }
+              ]
+            },
+            "description": "Chỉ 08-final, chạy npm run seed trước"
+          }
+        },
+        {
+          "name": "Suất chiếu (populate)",
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/showtimes",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "showtimes"
+              ]
+            },
+            "description": "Chỉ 08-final"
+          }
+        },
+        {
+          "name": "Xóa phim",
+          "request": {
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{base}}/movies/{{movieId}}",
+              "host": [
+                "{{base}}"
+              ],
+              "path": [
+                "movies",
+                "{{movieId}}"
+              ]
+            },
+            "description": "Lần 1: 204, lần 2: 404"
+          }
+        }
+      ]
+    }
+  ],
+  "variable": [
+    {
+      "key": "base",
+      "value": "http://localhost:3000/api"
+    },
+    {
+      "key": "movieId",
+      "value": ""
+    }
+  ]
+}
